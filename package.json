@@ -1,5 +1,5 @@
 {
-  "name": "slider",
+  "name": "slider-input",
   "version": "0.0.1",
   "description": "A slider input UI implement",
   "main": "dist/slider.js",

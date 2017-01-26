@@ -1,9 +1,12 @@
-# Slider
+# Slider Input
 A slider input UI implement. [Demo](https://simonmysun.github.io/slider/demo/)
 
 ## Usage
 
-Include the script and style in your web page or install from npm first. 
+Include the script and style in your web page or install from npm first.
+```bash
+npm install --save slider-input
+```
 
 HTML: 
 ```html
