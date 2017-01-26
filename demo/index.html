@@ -26,11 +26,10 @@
 npm install --save slider-input
             </code>
           </pre>
-          <p>The value is now <span id="val"></span> of <span id="total"></span>. </p>
+          <p>The value is now <span id="val"></span> of 30. </p>
           <div id="demo-slider"></div>
           <script>
            var valDom = document.getElementById('val');
-           var totDom = document.getElementById('total');
 
            var demoSlider = document.getElementById('demo-slider');
            new Slider(demoSlider, {
@@ -40,27 +39,24 @@ npm install --save slider-input
                valDom.textContent = (val).toFixed(2);
              }
            });
-           
-           totDom.textContent = 30;
           </script>
           <h2>Step move</h2>
           <p>Att. Not implemented yet! </p>
           <div id="step-slider"></div>
           <script>
-           /*
-              var stepSlider = document.getElementById('step-slider');
-              new Slider(stepSlider, {
-              init: 9,
-              total: 15,
-              step: 3
-              });
-           */
+           var stepSlider = document.getElementById('step-slider');
+           new Slider(stepSlider, {
+             init: 9,
+             total: 15,
+             step: 3
+           });
           </script>
           <h2>Color Scale</h2>
           <div id="color-slider"></div>
           <script>
            var colorSlider = document.getElementById('color-slider');
            new Slider(colorSlider, {
+             init: 75,
              colors: [
                (function() {
                  return function(r) {
@@ -76,7 +72,6 @@ npm install --save slider-input
            });
           </script>
           <h2>Swipe Away</h2>
-          <p><span id="if-swiped-away"></span></p>
           <div id="swipe-away-slider"></div>
           <script>
            var swipeAwaySlider = document.getElementById('swipe-away-slider');
@@ -84,12 +79,14 @@ npm install --save slider-input
              init: 50,
              total: 100,
              swipeLeft: function() {
-               swipeAwaySlider.parentNode.removeChild(swipeAwaySlider);
-               document.getElementById('if-swiped-away').textContent = 'Swiped away from left. ';
+               var newDiv = document.createElement('p');
+               newDiv.textContent = 'Swiped away from left. ';
+               swipeAwaySlider.parentNode.removeChild(, newDivswipeAwaySlider);
              },
              swipeRight: function() {
-               swipeAwaySlider.parentNode.removeChild(swipeAwaySlider);
-               document.getElementById('if-swiped-away').textContent = 'Swiped away from right. ';
+               var newDiv = document.createElement('p');
+               newDiv.textContent = 'Swiped away from right. ';
+               swipeAwaySlider.parentNode.removeChild(, newDivswipeAwaySlider);
              }
            });
           </script>
@@ -108,6 +105,7 @@ npm install --save slider-input
              }
            });
           </script>
+          <h2>Example Use Case</h2>
           <h2>To Do App</h2>
           <div id="todos"></div>
           <a href="#" id="add-todo">Add</a>
@@ -144,7 +142,6 @@ npm install --save slider-input
              addTodo();
            });
           </script>
-          <h2>Example Use Case</h2>
           <h3>Time Picker</h3>
           <p>Att. This is not complete because it depends on step move function. </p>
           <div id="clock">

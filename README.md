@@ -22,7 +22,7 @@ var mySlider = new Slider(mySlider, config);
 |---|---|---|
 | `init` | The initial value of the slider | `0` |
 | `total` | The maximum value of the slider | `100` |
-| `step` | The size of each movement | `false` (no step) |
+| `step` | The number of total movements | `0` (no step) |
 | `loop` | Whether the slider loops(Att. If configured `true`, this will conflict with `swipeLeft` and `swipeRight` options and disable them. ) | `false` |
 | `swipeLeft` | The callback function after the slider is totally swiped left(Att. The slider will not be swiped away when `loop` is enabled. ) | `null` |
 | `swipeRight` | The callback function after the slider is totally swiped right(Att. The slider will not be swiped away when `loop` is enabled. ) | `null` |

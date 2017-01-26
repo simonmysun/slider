@@ -8,7 +8,7 @@ function Slider(slider, config) {
     (
       init = 0,
       total = 100,
-      step = 1,
+      step = 0,
       loop = false,
       swipeLeft = false,
       swipeRight = false,
@@ -148,11 +148,12 @@ function Slider(slider, config) {
   });
 
   // TODO
+  // step move
   // navigation key bindings: arrow keys home end
   // inertia?
   // scale?
   // grids in css?
-  // examples: time picker, todo
+  // examples: time picker after step move is finished
 }
 
 module.exports = Slider;
