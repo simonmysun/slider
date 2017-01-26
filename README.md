@@ -1,5 +1,5 @@
 # Slider Input
-A slider input UI implement. [Demo](https://simonmysun.github.io/slider/demo/)
+A slider input UI implement. [Demo](https://simonmysun.github.io/slider-input/demo/)
 
 ## Usage
 
