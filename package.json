@@ -1,0 +1,41 @@
+{
+  "name": "slider",
+  "version": "0.0.1",
+  "description": "A slider input UI implement",
+  "main": "dist/slider.js",
+  "scripts": {
+    "build": "webpack --progress --colors --optimize-minimize --optimize-occurrence-order --optimize-dedupe",
+    "build-dev": "webpack --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonmysun/slider.git"
+  },
+  "author": "MY Sun <simonmysun@gmail.com> (https://simonmysun.github.io/)",
+  "license": "MIT",
+  "homepage": "https://github.com/simonmysun/slider#readme",
+  "peerDependencies": {
+    "hammerjs": "^2.0.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015-node": "^6.1.1",
+    "babel-preset-latest": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.15",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-html": "^1.7.0",
+    "eslint-plugin-import": "^2.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.8"
+  }
+}

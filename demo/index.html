@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Slider</title>
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="./hammer.min.js"></script>
+    <script src="./../dist/slider.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="container">
+        <div class="header">
+          <h1>Slider</h1>
+        </div>
+        <div id="content">
+          <h2>Basic Usage</h2>
+          To change the value, swipe or drag the slider, or long press, or double click / tap. To learn how to use the code, just read the source of this page.
+          <p>The value is now <span id="val"></span> of <span id="total"></span>. </p>
+          <div id="demo-slider"></div>
+          <script>
+           var valDom = document.getElementById('val');
+           var totDom = document.getElementById('total');
+
+           var demoSlider = document.getElementById('demo-slider');
+           new Slider(demoSlider, {
+             init: 5,
+             total: 30,
+             onChange: function(val) {
+               valDom.textContent = (val).toFixed(2);
+             }
+           });
+           
+           totDom.textContent = 30;
+          </script>
+          <h2>Step move</h2>
+          <p>Att. Not implemented yet! </p>
+          <div id="step-slider"></div>
+          <script>
+           /*
+              var stepSlider = document.getElementById('step-slider');
+              new Slider(stepSlider, {
+              init: 9,
+              total: 15,
+              step: 3
+              });
+           */
+          </script>
+          <h2>Color Scale</h2>
+          <div id="color-slider"></div>
+          <script>
+           var colorSlider = document.getElementById('color-slider');
+           new Slider(colorSlider, {
+             colors: [
+               (function() {
+                 return function(r) {
+                   return r < 1 ? 'rgb(0, ' + Math.floor(Math.sqrt(r) * 255) + ', 0)' : 'rgb(' + Math.floor(Math.sqrt(r - 1) * 255) + ', 255, ' + Math.floor(Math.sqrt(r - 1) * 255) + ')';
+                 };
+               })(),
+               (function() {
+                 return function(r) {
+                   return r > 0 ? 'rgb(' + Math.floor(Math.sqrt(1 - r) * 255) + ', 0, 0)' : 'rgb(' + Math.floor(Math.sqrt(1 + r) * 255) + ', 0, 0)';
+                 };
+               })()
+             ]
+           });
+          </script>
+          <h2>Swipe Away</h2>
+          <p><span id="if-swiped-away"></span></p>
+          <div id="swipe-away-slider"></div>
+          <script>
+           var swipeAwaySlider = document.getElementById('swipe-away-slider');
+           new Slider(swipeAwaySlider, {
+             init: 50,
+             total: 100,
+             swipeLeft: function() {
+               swipeAwaySlider.parentNode.removeChild(swipeAwaySlider);
+               document.getElementById('if-swiped-away').textContent = 'Swiped away from left. ';
+             },
+             swipeRight: function() {
+               swipeAwaySlider.parentNode.removeChild(swipeAwaySlider);
+               document.getElementById('if-swiped-away').textContent = 'Swiped away from right. ';
+             }
+           });
+          </script>
+          <h2>Loop</h2>
+          <p>The value will loop. </p>
+          <div id="loop-slider"><div class="--slider-center"><span id="loop-value"></span>deg</div></div>
+          <script>
+           var loopSlider = document.getElementById('loop-slider');
+           var loopValue = document.getElementById('loop-value');
+           new Slider(loopSlider, {
+             init: 15,
+             total: 360,
+             loop: true,
+             onChange: function(val) {
+               loopValue.textContent = (val).toFixed(2);
+             }
+           });
+          </script>
+          <h2>To Do App</h2>
+          <div id="todos"></div>
+          <a href="#" id="add-todo">Add</a>
+          <script>
+           var todos = document.getElementById('todos');
+           var texts = ['final exams', 'PhD application', '100 books in 2017', 'working out', 'guitar course'];
+           var addTodo = function(text) {
+             var text = texts[Math.floor(Math.random() * texts.length)];
+             var div = document.createElement('div');
+             var centerText = document.createElement('div');
+             centerText.classList.add('--slider-center');
+             centerText.textContent = text;
+             div.appendChild(centerText);
+             todos.appendChild(div);
+             new Slider(div, {
+               init: Math.random() * Math.random() * 100,
+               swipeLeft: function() {
+                 newDiv = document.createElement('p');
+                 newDiv.textContent = 'You have abandoned ' + text;
+                 todos.replaceChild(newDiv, div);
+               },
+               swipeRight: function() {
+                 newDiv = document.createElement('p');
+                 newDiv.textContent = 'Congratulations! You have finished ' + text;
+                 todos.replaceChild(newDiv, div);
+               }
+             });
+           };
+           addTodo();
+           addTodo();
+           addTodo();
+           addTodo();
+           document.getElementById('add-todo').addEventListener('click', function() {
+             addTodo();
+           });
+          </script>
+          <h2>Example Use Case</h2>
+          <h3>Time Picker</h3>
+          <p>Att. This is not complete because it depends on step move function. </p>
+          <div id="clock">
+            <div id="clock-display">
+              <div id="clock-center"></div>
+              <div id="clock-hour-hand"></div>
+              <div id="clock-minute-hand"></div>
+              <div id="clock-second-hand"></div>
+            </div>
+            <div id="clock-sliders">
+              <div id="clock-sliders-containers">
+                <div id="hour-slider"></div>
+                <div id="minute-slider"></div>
+                <div id="second-slider"></div>
+              </div>
+              <script>
+               var time = [347 / 15, 8, 5];
+               var hourHand = document.getElementById('clock-hour-hand');
+               var minuteHand = document.getElementById('clock-minute-hand');
+               var secondHand = document.getElementById('clock-second-hand');
+               var updateClock = function() {
+                 hourHand.style.transform = 'translateX(-25%) rotate(' + (time[0] * 15 - 90) + 'deg)';
+                 minuteHand.style.transform = 'translateX(-25%) rotate(' + (time[1] * 6 - 90) + 'deg)';
+                 secondHand.style.transform = 'translateX(-25%) rotate(' + (time[2] * 6 - 90) + 'deg)';
+               };
+               updateClock();
+               var hourSlider = new Slider(document.getElementById('hour-slider'), {
+                 init: 23,
+                 total: 24,
+                 loop: true,
+                 onChange: function(val) {
+                   time[0] = val;
+                   updateClock();
+                 }
+               });
+               var minuteSlider = new Slider(document.getElementById('minute-slider'), {
+                 init: 8,
+                 total: 60,
+                 loop: true,
+                 onChange: function(val) {
+                   time[1] = val;
+                   updateClock();
+                 }
+               });
+               var secondSlider = new Slider(document.getElementById('second-slider'), {
+                 init: 5,
+                 total: 60,
+                 loop: true,
+                 onChange: function(val) {
+                   time[2] = val;
+                   updateClock();
+                 }
+               });
+              </script>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+        <div class="footer"><p>By <a href="https://simonmysun.github.io/">Simonmysun</a> <a href="https://github.com/simonmysun/slider">Source code</a></p></div>
+      </div>
+    </div>
+    <script>
+    </script>
+  </body>
+</html>
