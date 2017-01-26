@@ -1,5 +1,5 @@
 # Slider
-A slider input UI implement. [Demo](https://simonmysun.github.io/slider)
+A slider input UI implement. [Demo](https://simonmysun.github.io/slider/demo/)
 
 ## Usage
 
@@ -26,3 +26,4 @@ var mySlider = new Slider(mySlider, config);
 | `onChange` | The callback function when the value of the sider has changed | an empty function |
 | `colors` | The colors of the user interface. If configured, it must be an array of two functions, which take a ratio between 0 and 1 as input, and return a valid css color expression | An array of two functions returning `#ccc` and `#333` |
 
+Detailed usage can be find easily from the source code of the [Demo](https://simonmysun.github.io/slider/demo/). 

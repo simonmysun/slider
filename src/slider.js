@@ -151,6 +151,7 @@ function Slider(slider, config) {
   // navigation key bindings: arrow keys home end
   // inertia?
   // scale?
+  // grids in css?
   // examples: time picker, todo
 }
 
